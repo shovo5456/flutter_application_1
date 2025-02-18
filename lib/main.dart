@@ -18,20 +18,31 @@ class LabClass05 extends StatelessWidget {
           centerTitle: true,
         ),
         body: Row(
-          mainAxisAlignment: MainAxisAlignment.center, // Centers the text horizontally
           children: [
+            Icon(
+              Icons.ac_unit,
+              size: 60,
+              color: Color.fromARGB(255, 0, 255, 0), // Corrected ARGB color
+            ),
             Text(
-              "This is ",
+              "Hi, ",
               style: TextStyle(
+                color: Colors.red,
                 fontSize: 30,
-                color: Colors.blue, // Blue color for the first part
               ),
             ),
             Text(
-              "Flutter",
+              "This is ",
               style: TextStyle(
-                fontSize: 30,
-                color: Colors.green, // Green color for the second part
+                color: Colors.yellow,
+                fontSize: 50,
+              ),
+            ),
+            Text(
+              "Flutter.",
+              style: TextStyle(
+                color: Colors.blue,
+                fontSize: 20,
               ),
             ),
           ],
