@@ -53,7 +53,7 @@ class LabClass05 extends StatelessWidget {
             SizedBox(height: 20), // Adding some space
             RatingBar.builder(
               initialRating: 4, // Starting with 4 stars
-              minRating: 1,
+              minRating: 3,
               itemSize: 40,
               itemBuilder: (context, _) => Icon(
                 Icons.star,
