@@ -1,3 +1,4 @@
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,33 +18,50 @@ class LabClass05 extends StatelessWidget {
           backgroundColor: Colors.blue[400],
           centerTitle: true,
         ),
-        body: Row(
+        body: Column(
           children: [
-            Icon(
-              Icons.ac_unit,
-              size: 60,
-              color: Color.fromARGB(255, 0, 255, 0), // Corrected ARGB color
+            Row(
+              children: [
+                Icon(
+                  Icons.ac_unit,
+                  size: 60,
+                  color: Color.fromARGB(255, 0, 255, 0),
+                ),
+                Text(
+                  "Hi, ",
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 30,
+                  ),
+                ),
+                Text(
+                  "This is ",
+                  style: TextStyle(
+                    color: Colors.yellow,
+                    fontSize: 50,
+                  ),
+                ),
+                Text(
+                  "Flutter.",
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 20,
+                  ),
+                ),
+              ],
             ),
-            Text(
-              "Hi, ",
-              style: TextStyle(
-                color: Colors.red,
-                fontSize: 30,
+            SizedBox(height: 20), // Adding some space
+            RatingBar.builder(
+              initialRating: 4, // Starting with 4 stars
+              minRating: 1,
+              itemSize: 40,
+              itemBuilder: (context, _) => Icon(
+                Icons.star,
+                color: Colors.amber,
               ),
-            ),
-            Text(
-              "This is ",
-              style: TextStyle(
-                color: Colors.yellow,
-                fontSize: 50,
-              ),
-            ),
-            Text(
-              "Flutter.",
-              style: TextStyle(
-                color: Colors.blue,
-                fontSize: 20,
-              ),
+              onRatingUpdate: (rating) {
+                print("Rating: $rating");
+              },
             ),
           ],
         ),
