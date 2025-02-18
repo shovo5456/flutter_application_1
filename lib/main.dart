@@ -1,69 +1,94 @@
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const LabClass05());
-}
+void main() => runApp(const SimpleNikeApp());
 
-class LabClass05 extends StatelessWidget {
-  const LabClass05({super.key});
+class SimpleNikeApp extends StatelessWidget {
+  const SimpleNikeApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Basic Flutter UI - 02",
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Basic Flutter UI - 02"),
-          backgroundColor: Colors.blue[400],
-          centerTitle: true,
-        ),
-        body: Column(
-          children: [
-            Row(
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.green, Colors.lightGreen],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.ac_unit,
-                  size: 60,
-                  color: Color.fromARGB(255, 0, 255, 0),
-                ),
-                Text(
-                  "Hi, ",
+                const Text(
+                  '50% OFF',
                   style: TextStyle(
-                    color: Colors.red,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  height: 200,
+                  width: 300,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    image: const DecorationImage(
+                      image: NetworkImage('https://ibb.co.com/DPJ9wyJW'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Nike Air',
+                  style: TextStyle(
                     fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
-                Text(
-                  "This is ",
+                const SizedBox(height: 10),
+                const Text(
+                  '\$150 \$75',
                   style: TextStyle(
-                    color: Colors.yellow,
-                    fontSize: 50,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.yellowAccent,
+                    decoration: TextDecoration.lineThrough,
                   ),
                 ),
-                Text(
-                  "Flutter.",
+                const Text(
+                  '\$75 Only!',
                   style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 20,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 30),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.green,
+                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  child: const Text(
+                    'Buy Now',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 20), // Adding some space
-            RatingBar.builder(
-              initialRating: 4, // Starting with 4 stars
-              minRating: 3,
-              itemSize: 40,
-              itemBuilder: (context, _) => Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-              onRatingUpdate: (rating) {
-                print("Rating: $rating");
-              },
-            ),
-          ],
+          ),
         ),
       ),
     );
